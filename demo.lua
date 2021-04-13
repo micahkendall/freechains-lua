@@ -1,3 +1,8 @@
+--[[
+A question I have is, I'm not sure if it fits the style of normal lua to create classes like this?
+It isn't a convention I've seen in any 'pure' lua libraries.
+
+]]
 local socket = require"socket"
 
 local demo = {
