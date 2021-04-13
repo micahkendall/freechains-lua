@@ -1,7 +1,27 @@
 local socket = require"socket"
 
-local client = socket.connect('127.0.0.1','8330')
-client:send("FC v0.7.10 chains list\n")
-local chains_list = client:receive()
-print(chains_list)
-client:close()
+local demo = {
+    VERSION = "v0.7.10";
+}
+demo.__index = demo
+
+function demo.new(ip, port)
+    local self = setmetatable({}, demo)
+    self.client = socket.connect(ip, port)
+    return self
+end
+
+function demo:runAndWait(...)
+    local outStr = "FC " .. self.VERSION .. " " .. (table.concat({...}, " ")) .. "\n"
+    self.client:send(outStr)
+    return self.client:receive()
+end
+
+function demo:run()
+    local chains_list = self:runAndWait("chains", "list")
+    assert(chains_list)
+    print(chains_list)
+    self.client:close()
+end
+
+demo.new('127.0.0.1','8330'):run()
