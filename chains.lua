@@ -6,7 +6,7 @@ chains.__index = chains
 
 function chains.new(name, ip, port)
 	local newChain = {name = name; ip=ip; port=port};
-	setmetatable(neChain, chain)
+	setmetatable(newChain, chain)
 	return newChain
 end
 
