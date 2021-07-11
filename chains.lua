@@ -1,13 +1,31 @@
-local freechains = require("fc.lua")
-local chain = require("chain.lua")
-
+local chain = require("chain")
 local chains = {}
 chains.__index = chains
 
-function chains.new(name, ip, port)
-	local newChain = {name = name; ip=ip; port=port};
-	setmetatable(newChain, chain)
-	return newChain
+function chains.new(fc)
+    local newChains = {freechains = fc};
+    setmetatable(newChains, chains)
+    return newChains
 end
 
-function chains
+function chains:join(chain, key)
+    return self.freechains{"chains", "join", chain, key}
+end
+
+function chains:leave(chain, key)
+    return self.freechains{"chains", "leave", chain}
+end
+
+function chains:strList()
+    return self.freechains{"chains", "list"}
+end
+
+function chains:list()
+    return self.freechains{"chains", "list"}
+end
+
+function chains:listen(handler)
+
+end
+
+return chains
