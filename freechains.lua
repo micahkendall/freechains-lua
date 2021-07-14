@@ -20,6 +20,7 @@ function freechains(args)
         commandString = commandString .. ' -'..value
     end
     local daemon = socket.connect(ip, port)
+    assert(daemon, "The daemon could not be found!")
     local daemonString = string.format("FC %s %s\n", VERSION, commandString)
     daemon:send(daemonString)
     if listener then

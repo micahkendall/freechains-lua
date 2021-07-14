@@ -8,10 +8,12 @@ function crypto.new(fc)
     return newCrypto
 end
 
-function crypto.genShared(passphrase)
-    return self.freechains{"crypto", "shared", passphrase}
+function crypto:genShared(passphrase)
+    return (self.freechains{"crypto", "shared", passphrase})
 end
 
-function crypto.genPubPvt(passphrase)
-    return self.freechains{"crypto", "pubpvt", passphrase}
+function crypto:genPubPvt(passphrase)
+    return (self.freechains{"crypto", "pubpvt", passphrase})
 end
+
+return crypto
