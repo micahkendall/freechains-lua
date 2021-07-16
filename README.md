@@ -17,7 +17,7 @@ Freechains.lua is simple
 
 - `freechains = require("freechains")` will load in the api
 
-	- `freechains{...args, ip=..., port=...}` can be used for basic string commands
+	- `freechains{...args, ```js string``` ip=..., ```js string``` port=...}` can be used for basic string commands
 	- `fc = freechains{ip=..., port=...}`Without passing any arguments, the daemon "templates", giving a function which can be used to run commands with common ip+port
 		- `chains_list = fc{"chains", "list"}` 
 
