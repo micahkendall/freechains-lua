@@ -1,12 +1,13 @@
 local socket = require"socket"
-local VERSION = "v0.8.4";
+local VERSION = "v0.8.6";
 
 -- freechains{tuples, arg1=val1; arg2=val2; etc etc} will execute a command
 -- freechains{ip=ip; port=port} alone will return a "template" which can be passed to the other apis
 function freechains(args)
     local ip, port = args.ip or '127.0.0.1', args.port or '8330'
     local listener = args.listener
-    args.ip, args.port, args.listener = nil, nil, nil
+    local callback = args.callback -- if callback is passed, instead of returning, function will be called.
+    args.ip, args.port, args.listener, args.callback = nil, nil, nil, nil
     if next(args)==nil then -- in the case of no other arguments, templatify
         return template(ip, port)
     end
@@ -28,7 +29,11 @@ function freechains(args)
             table.insert(listener, daemon:receive())
         end
     else
-        return daemon:receive()
+        if callback then
+            callback(daemon:receive())
+        else
+            return daemon:receive()
+        end
     end
 end
 
