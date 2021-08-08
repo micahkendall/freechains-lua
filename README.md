@@ -5,4 +5,4 @@ Freechains is a peer-to-peer publish-subscribe content dissemination protocol. T
 
 #### Part of LabLua GSoC'2021
 
-[Setup](../docs/setup.md)
+[Setup](docs/setup.md)
