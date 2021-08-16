@@ -2,7 +2,6 @@
 'Peers' api is used for pinging peers and getting their chains
 Functions here generate commands with the prefix "freechains peer"
 ]]
--- considering: breaking down into peers / peer so you only specify a peers ip once, and then you can run :chains :ping without respecifying
 
 local peer = {}
 peer.__index = peer
@@ -13,20 +12,20 @@ function peer.formatAddress(address, port)
 end
 
 -- get a peers object for running commands to peers.
-function peer.newDaemon(fc) -- arg fc is a template from freechains{ip=...,port=...}
-    local daemon = {freechains = fc};
-    setmetatable(daemon, peer)
-    return daemon
+function peer.new(freechains) -- arg fc is a template from freechains{ip=...,port=...}
+    local peer_instance = {freechains = freechains};
+    setmetatable(peer_instance, peer)
+    return peer_instance
 end
 
 -- runs and returns chains command for peer at address:port
 function peer:chains(address, port)
-    return (self.freechains{"peer", self.formatAddress(address, port), "chains"})
+    return (self.freechains:call{"peer", self.formatAddress(address, port), "chains"})
 end
 
 -- runs and returns ping command for peer at address:port
 function peer:ping(address, port)
-    return (self.freechains{"peer", self.formatAddress(address, port), "ping"})
+    return (self.freechains:call{"peer", self.formatAddress(address, port), "ping"})
 end
 
 return peer

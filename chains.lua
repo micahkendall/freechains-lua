@@ -8,25 +8,25 @@ local chains = {}
 chains.__index = chains
 
 -- create a chains object for a particular daemon which allows 
-function chains.new(fc)
-    local newChains = {freechains = fc};
-    setmetatable(newChains, chains)
-    return newChains
+function chains.new(freechains)
+    local chains_instance = {freechains = freechains};
+    setmetatable(chains_instance, chains)
+    return chains_instance
 end
 
 -- runs and returns join command for chains object
 function chains:join(chain, key)
-    return (self.freechains{"chains", "join", chain, key})
+    return (self.freechains:call{"chains", "join", chain, key})
 end
 
 -- runs and returns leave command for chains object
 function chains:leave(chain, key)
-    return (self.freechains{"chains", "leave", chain})
+    return (self.freechains:call{"chains", "leave", chain})
 end
 
 -- runs and returns list command for chains object
 function chains:strList()
-    return (self.freechains{"chains", "list"})
+    return (self.freechains:call{"chains", "list"})
 end
 
 -- runs and returns list command for chains object, but processes it into a table list
@@ -38,8 +38,8 @@ function chains:list()
     return list
 end
 
-function chains:listen(handler) -- !!! ???
-
+function chains:listen()
+    self.freechains:listen{"chains", "listen"}
 end
 
 return chains
