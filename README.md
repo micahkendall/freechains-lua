@@ -40,4 +40,4 @@ lua ./examples/<file name>.lua
 
 Files [freechains.lua](../freechains.lua), [peers.lua](../peers.lua), [chains.lua](../chains.lua), [chain.lua](../chain.lua), [crypto.lua](../crypto.lua) should all be in the same folder as your source folder. 
 
-See the basics [here](basics.md)
+See the basics [here](docs/basics.md)
