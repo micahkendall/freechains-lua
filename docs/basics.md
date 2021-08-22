@@ -1,4 +1,4 @@
-[<- Setup](setup.md)
+[<- Read me](../README.md)
 
 # Basic Usage of the Freechains.lua api
 

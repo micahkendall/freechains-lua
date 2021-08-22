@@ -15,18 +15,18 @@ function chains.new(freechains)
 end
 
 -- runs and returns join command for chains object
-function chains:join(chain, key)
-    return (self.freechains:call{"chains", "join", chain, key})
+function chains:join(chain_name, key)
+    return (self.freechains:call{"chains", "join", chain_name, key})
 end
 
 -- runs and returns leave command for chains object
-function chains:leave(chain, key)
-    return (self.freechains:call{"chains", "leave", chain})
+function chains:leave(chain_name)
+    return (self.freechains:call{"chains", "leave", chain_name})
 end
 
 -- runs and returns list command for chains object
 function chains:strList()
-    return (self.freechains:call{"chains", "list"})
+    return self.freechains:call{"chains", "list"}
 end
 
 -- runs and returns list command for chains object, but processes it into a table list
@@ -38,8 +38,8 @@ function chains:list()
     return list
 end
 
-function chains:listen()
-    self.freechains:listen{"chains", "listen"}
+function chains:listen(listener, chain)
+    self.freechains:listen({"chains", "listen"}, listener)
 end
 
 return chains
