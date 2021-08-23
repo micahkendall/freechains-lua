@@ -10,15 +10,16 @@ Freechains.lua is simple
     will load in the api
 
 - ```lua
-    freechains{strings ...args, string ip=..., string port=...} -- You usually won't actually use the api like this
+    freechains.new{ip="127.0.0.1", port="8330", callback=function(...) print(...) end} -- Prepares an instance object of freechains with ip+port for use with :call
     ```
-    Calling basic string commands
+    Prepare freechains configuration (ip+port)
+    Returns a lua metatable which acts as an object.
 
 - ```lua
-    fc = freechains{string ip = ..., string port = ...} -- "templating" is the preferable way to use the api.
-    chains_list = fc{"chains", "list"}
+    fc = freechains.new {ip="127.0.0.1", string port = ...} -- "templating" is the recommended way to use the api.
+    chains_list = fc:call{"chains", "list"}
     ```
-    Without passing any arguments, the daemon "templates", giving a function which can be used to run commands with common ip:port target
+    Using the .new function, the daemon "templates", giving a object which can be used to run commands with common ip:port target
 
 ## Extensions
 

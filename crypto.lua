@@ -13,7 +13,11 @@ function crypto:genShared(passphrase)
 end
 
 function crypto:genPubPvt(passphrase)
-    return (self.freechains:call{"crypto pubpvt\n"..passphrase})
+    local t={}
+    for match in (self.freechains:call{"crypto pubpvt\n"..passphrase}.." "):gmatch("(.-) ") do
+        table.insert(t, match)
+    end
+    return t[1], t[2]
 end
 
 return crypto
