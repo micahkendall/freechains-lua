@@ -68,8 +68,7 @@ function chain:traverse(hashes)
     return (self.freechains:call{"chain", self.name, "traverse", table.concat(hashes, " ")})
 end
 
--- this is broken
-function chain:listen() -- broken for some reason? todo!
+function chain:listen()
     return (self.freechains:call{"chain", self.name, "listen"})
 end
 
