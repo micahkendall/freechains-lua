@@ -44,9 +44,15 @@ See the basics [here](docs/basics.md)
 
 ## SELF-IMPOSED EXTENSION:
 As self imposed extensions to this project, I began two projects:
-    -> [A javascript port for browser & node.js platforms](https://github.com/micahkendall/freechains.js)
-    -> [A web interface utilising freechains for foruming](https://github.com/micahkendall/freechains-web)
+
+
+-> [A javascript port for browser & node.js platforms](https://github.com/micahkendall/freechains.js)
+
+-> [A web interface utilising freechains for foruming](https://github.com/micahkendall/freechains-web)
+
+
 These are incomplete and are not prepared to be ran, however the source can be read and considered.
 I intend to continue development with these after the end of GSoC.
 
-There is also a [prototype of a react nodegui application]() which is not going to be developed further, as the browser interface was more suitable. This is provided for educational/archive purposes.
+
+There is also a [prototype of a react nodegui application](https://github.com/micahkendall/fc-nodegui-prototype) which is not going to be developed further, as the browser interface was more suitable. This is provided for educational/archive purposes.
