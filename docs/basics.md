@@ -50,6 +50,6 @@ Other modules are included as an extension of this api. These are peers.lua, cha
 ## crypto.lua
 
 - For key generation using **crypto**
-    - Public keys,
+    - Public keys, private keys, shared keys
 
 [Crypto module docs](crypto.md)
