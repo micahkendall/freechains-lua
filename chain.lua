@@ -36,9 +36,6 @@ function chain:getPayload(hash)
     return (self.freechains:call{"chain", self.name, "get", "payload", hash})
 end
 
--- I think this should be made into a table for argument passthrough
--- or, the daemon could be initiated with a signing key? 
--- runs and returns post command for chain object
 function chain:post(text)
     -- inline, text
     return (self.freechains:call{"chain", self.name, "post", "inline", text})

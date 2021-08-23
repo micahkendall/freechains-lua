@@ -7,7 +7,6 @@ function crypto.new(freechains)
     return crypto_instance
 end
 
--- 🤔... odd
 function crypto:genShared(passphrase)
     return (self.freechains:call{"crypto shared\n"..passphrase})
 end

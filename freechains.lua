@@ -1,11 +1,6 @@
 local socket = require"socket"
 local VERSION = "v0.8.6";
 
--- having one function for two uses was unclean and is better done using two functions
--- this will be done using a "freechains" object with .call and .new methods
--- the .call method will be static and the .new will create a new object
--- if you ever need to (for some reason) call a function only once with a unique ip+address, you can simply use freechains.new{...}:call("")
-
 local freechains = {
     ip = "127.0.0.1",
     port = "8330"
