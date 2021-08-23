@@ -28,20 +28,28 @@ Other modules are included as an extension of this api. These are peers.lua, cha
 ### Module Directory
 #### Contains guide for requiring the module, explanation of functions.
 
+## peers.lua
+
 - For communicating with other **peers**
 
-[Peers module](peers.md)
+[Peers module docs](peers.md)
+
+## chains.lua
 
 - For joining, leaving, listing all **chains**.
 
-[Chains module](chains.md)
+[Chains module docs](chains.md)
+
+## chain.lua
 
 - For operations to a particular **chain**.
     - i.e get payload, like, dislike, getReps
 
-[Chain module](chain.md)
+[Chain module docs](chain.md)
+
+## crypto.lua
 
 - For key generation using **crypto**
-    - Pub
+    - Public keys,
 
-[Crypto module](crypto.md)
+[Crypto module docs](crypto.md)
